@@ -30,9 +30,40 @@ public class ArrayStructures {
     public boolean doesArrayContainThisValue(int searchValue) {
         boolean valueInArray = false;
 
-        for() {
-
+        for(int i = 0; i < arraySize; i++) {
+            if(theArray[i] == searchValue) {
+                valueInArray = true;
+            }
         }
+        return valueInArray;
+    }
+
+    public void deleteIndex(int index) {
+        if(index < arraySize) {
+            for(int i = index; i < (arraySize); i++) {
+                theArray[i] = theArray[i+1];
+            }
+
+            arraySize--;
+        }
+    }
+
+    public void insertValue(int value) {
+        if(arraySize < 50) {
+            arraySize++;
+            theArray[arraySize-1] = value;
+        }
+    }
+
+    public String linearSearchForValue(int value) {
+        String indexsWithValue = "";
+
+        for(int i = 0; i < arraySize; i++) {
+            if(theArray[i] == value) {
+                indexsWithValue += "" + i + " ";
+            }
+        }
+        return indexsWithValue;
     }
 
     public static void main(String[] args) {
@@ -42,6 +73,16 @@ public class ArrayStructures {
         newArray.printArray();
 
         System.out.println("At index 3: " + newArray.getValueAtIndex(3));
+        System.out.println("Arr contains 18: " + newArray.doesArrayContainThisValue(18));
+
+        newArray.deleteIndex(4);
+        newArray.printArray();
+
+        newArray.insertValue(27);
+        newArray.printArray();
+
+        System.out.println(newArray.linearSearchForValue(11));
+        newArray.printArray();
 
     } // END OF main
 } // END OF ArrayStructures CLASS
