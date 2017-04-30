@@ -1,8 +1,8 @@
 
 public class ArrayStructures {
 
-    private int[] theArray = new int[50];
-    private int arraySize = 10;
+    public int[] theArray = new int[50];
+    public int arraySize = 10;
 
     public void generateRandomArray() {
         for(int i = 0; i < arraySize; i++) {
