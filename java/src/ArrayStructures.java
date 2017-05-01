@@ -66,23 +66,130 @@ public class ArrayStructures {
         return indexsWithValue;
     }
 
+    public void printHorzArray(int i, int j){
+
+        for(int n = 0; n < 51; n++)System.out.print("-");
+
+        System.out.println();
+
+        for(int n = 0; n < arraySize; n++){
+
+            System.out.print("| " + n + "  ");
+
+        }
+
+        System.out.println("|");
+
+        for(int n = 0; n < 51; n++)System.out.print("-");
+
+        System.out.println();
+
+        for(int n = 0; n < arraySize; n++){
+
+            System.out.print("| " + theArray[n] + " ");
+
+        }
+
+        System.out.println("|");
+
+        for(int n = 0; n < 51; n++)System.out.print("-");
+
+        System.out.println();
+
+        // END OF FIRST PART
+
+
+        // ADDED FOR BUBBLE SORT
+
+        if(j != -1){
+
+            // ADD THE +2 TO FIX SPACING
+
+            for(int k = 0; k < ((j*5)+2); k++)System.out.print(" ");
+
+            System.out.print(j);
+
+        }
+
+
+        // THEN ADD THIS CODE
+
+        if(i != -1){
+
+            // ADD THE -1 TO FIX SPACING
+
+            for(int l = 0; l < (5*(i - j)-1); l++)System.out.print(" ");
+
+            System.out.print(i);
+
+        }
+
+        System.out.println();
+
+    } // END OF printHorzArray METHOD
+
+    public void swapValues(int indexOne, int indexTwo) {
+        int temp = theArray[indexOne];
+        theArray[indexOne] = theArray[indexTwo];
+        theArray[indexTwo] = temp;
+    }
+
+    public void bubbleSort() {
+        for(int i = arraySize - 1; i > 0; i--) {
+            for(int j = 0; j < i; j++) {
+                if(theArray[j] > theArray[j+1]) {
+                    swapValues(j, j+1);
+                    this.printHorzArray(i, j);
+                }
+            }
+        }
+    } // END OF bubleSort METHOD
+
+    public void binarySearchForValue(int value) {
+        int lowInd = 0;
+        int highInd = arraySize - 1;
+
+        while(lowInd <= highInd) {
+            int middleInd = (highInd + lowInd) / 2;
+
+            if(theArray[middleInd] < value) {
+                lowInd = middleInd;
+            } else if(theArray[middleInd] > value) {
+                highInd = middleInd - 1;
+            } else {
+                System.out.println("\nFound a match for " + value + " at Index " + middleInd);
+                lowInd = highInd + 1;
+            }
+
+            printHorzArray(middleInd, -1);
+        }
+
+    } // END OF binarySearchForValue METHOD
+
+    public void selectionSort() {
+
+    } // END OF selectionSort METHOD
+
     public static void main(String[] args) {
 
         ArrayStructures newArray = new ArrayStructures();
         newArray.generateRandomArray();
-        newArray.printArray();
+//        newArray.printArray();
+//
+//        System.out.println("At index 3: " + newArray.getValueAtIndex(3));
+//        System.out.println("Arr contains 18: " + newArray.doesArrayContainThisValue(18));
+//
+//        newArray.deleteIndex(4);
+//        newArray.printArray();
+//
+//        newArray.insertValue(27);
+//        newArray.printArray();
+//
+//        System.out.println(newArray.linearSearchForValue(11));
+//        newArray.printArray();
 
-        System.out.println("At index 3: " + newArray.getValueAtIndex(3));
-        System.out.println("Arr contains 18: " + newArray.doesArrayContainThisValue(18));
-
-        newArray.deleteIndex(4);
-        newArray.printArray();
-
-        newArray.insertValue(27);
-        newArray.printArray();
-
-        System.out.println(newArray.linearSearchForValue(11));
-        newArray.printArray();
+        newArray.bubbleSort();
+        newArray.binarySearchForValue(15);
 
     } // END OF main
 } // END OF ArrayStructures CLASS
