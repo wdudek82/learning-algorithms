@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
 from random import randint
 
 

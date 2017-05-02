@@ -185,6 +185,27 @@ public class ArrayStructures {
     } // END OF selectionSort METHOD
 
 
+    public void insertionSort() {
+        for(int i = 1; i < arraySize; i++) {
+            int j = i;
+            int toInsert = theArray[i];
+
+            printHorzArray(i, j);
+            while((j > 0) && (theArray[j-1] > toInsert)) {
+                theArray[j] = theArray[j-1];
+                j--;
+
+                printHorzArray(i, j);
+            }
+
+            theArray[j] = toInsert;
+
+            printHorzArray(i, j);
+            System.out.println("\nArray[i] = " + theArray[i] + " Array[j] = " + theArray[j] + " toInsert = " + toInsert);
+        }
+    }
+
+
     public static void main(String[] args) {
 
         ArrayStructures newArray = new ArrayStructures();
@@ -206,7 +227,9 @@ public class ArrayStructures {
 //        newArray.bubbleSort();
 //        newArray.binarySearchForValue(15);
 
-        newArray.selectionSort();
+//        newArray.selectionSort();
+
+        newArray.insertionSort();
 
     } // END OF main
 } // END OF ArrayStructures CLASS

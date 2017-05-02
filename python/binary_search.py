@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
 from sort import bubble_sort
 from utils import generate_array
 
