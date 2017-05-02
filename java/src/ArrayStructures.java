@@ -145,6 +145,7 @@ public class ArrayStructures {
         }
     } // END OF bubleSort METHOD
 
+
     public void binarySearchForValue(int value) {
         int lowInd = 0;
         int highInd = arraySize - 1;
@@ -158,7 +159,7 @@ public class ArrayStructures {
                 highInd = middleInd - 1;
             } else {
                 System.out.println("\nFound a match for " + value + " at Index " + middleInd);
-                lowInd = highInd + 1;
+                break;
             }
 
             printHorzArray(middleInd, -1);
@@ -166,9 +167,23 @@ public class ArrayStructures {
 
     } // END OF binarySearchForValue METHOD
 
-    public void selectionSort() {
 
+    public void selectionSort() {
+        for(int x = 0; x < arraySize; x++) {
+            int minimum = x;
+
+            for(int y = x; y < arraySize; y++) {
+                if(theArray[minimum] > theArray[y]) {
+                    minimum = y;
+                }
+            }
+
+            swapValues(x, minimum);
+
+            printHorzArray(x, -1);
+        }
     } // END OF selectionSort METHOD
+
 
     public static void main(String[] args) {
 
@@ -188,8 +203,10 @@ public class ArrayStructures {
 //        System.out.println(newArray.linearSearchForValue(11));
 //        newArray.printArray();
 
-        newArray.bubbleSort();
-        newArray.binarySearchForValue(15);
+//        newArray.bubbleSort();
+//        newArray.binarySearchForValue(15);
+
+        newArray.selectionSort();
 
     } // END OF main
 } // END OF ArrayStructures CLASS

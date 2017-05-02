@@ -11,12 +11,22 @@ class Sort:
                     array[j], array[j+1] = array[j+1], array[j]
 
     @staticmethod
-    def merge_sort(array):
-        pass
+    def selection_sort(array):
+        for x in range(len(array)):
+            min = x
+            for y in range(x+1, len(array)):
+                if array[min] > array[y]:
+                    min = y
+            array[x], array[min] = array[min], array[x]
 
     @staticmethod
     def insert_sort(array):
         pass
+
+    @staticmethod
+    def merge_sort(array):
+        pass
+
 
 
 bubble_sort = Sort.bubble_sort
@@ -27,5 +37,6 @@ if __name__ == "__main__":
 
     arr = generate_array(6)
     print(arr)
-    Sort.bubble_sort(arr)
+    # Sort.bubble_sort(arr)
+    Sort.selection_sort(arr)
     print(arr)
