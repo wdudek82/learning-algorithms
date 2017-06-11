@@ -1,5 +1,5 @@
 import time
-from utils import generate_array
+from .utils import generate_array
 from random import randint
 
 

@@ -1,5 +1,5 @@
-from sort import bubble_sort
-from utils import generate_array
+from .sort import bubble_sort
+from .utils import generate_array
 
 
 def binary_search(value, array):
@@ -13,7 +13,6 @@ def binary_search(value, array):
             high = middle - 1
         else:
             return f"Found match for {value} at index: {middle}"
-            break
     return f"Value {value} was not found"
 
 
